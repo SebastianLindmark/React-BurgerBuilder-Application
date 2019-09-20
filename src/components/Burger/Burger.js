@@ -3,11 +3,13 @@ import classes from './Burger.css'
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient'
 
 const burger = (props) => {
-
+    
     let convertedIngredients = Object.keys(props.ingredients)
     .map(igKey => {
-        return [...Array(props.ingredients[igKey])].map((_,i) => 
-            <BurgerIngredient key={igKey + i} type= {igKey}/>
+        return [...Array(props.ingredients[igKey])].map((_,i) => {
+            console.log(i);
+            return <BurgerIngredient key={igKey + i} type= {igKey} onDragStart={(event) => onDragStart(event,i)}/>
+        }
         )
     }).reduce( (arr,el) => {
         return arr.concat(el);
@@ -18,12 +20,16 @@ const burger = (props) => {
     }
 
 
+    const onDragStart = (event,index) => {
+        event.dataTransfer.setData('id', index);
+        props.ingredientDragged(event);
+        console.log("Detected on drag start from index " , index);
+    }
+
+
     return (
         <div className={classes.Burger}>
-            <BurgerIngredient type="bread-top"/>
             {convertedIngredients}
-            <BurgerIngredient type="bread-bottom"/>
-
         </div>
 
     )

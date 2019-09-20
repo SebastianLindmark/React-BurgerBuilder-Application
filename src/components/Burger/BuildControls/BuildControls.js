@@ -7,10 +7,12 @@ import classes from './BuildControls.css'
 
 
 const controls = [
+    { label: "Top bread", type: "bread-top" },
     { label: "Salad", type: "salad" },
     { label: "Cheese", type: "cheese" },
     { label: "Bacon", type: "bacon" },
-    { label: "Meat", type: "meat" }
+    { label: "Meat", type: "meat" },
+    { label: "Bottom bread", type: "bread-bottom" }
 ];
 
 

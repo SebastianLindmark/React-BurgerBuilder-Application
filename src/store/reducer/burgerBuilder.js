@@ -12,7 +12,9 @@ const INGREDIENT_PRICES = {
     salad: 0.5,
     bacon: 1,
     cheese: 2,
-    meat: 3
+    meat: 3,
+    "bread-top" : 2,
+    "bread-bottom" : 2
 }
 
 

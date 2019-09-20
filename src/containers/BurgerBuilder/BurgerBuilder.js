@@ -60,9 +60,11 @@ export class BurgerBuilder extends Component {
         if (this.props.ings) {
             burger = (
                 <Aux>
-                    <Burger ingredients={this.props.ings} />
+                    <Burger ingredients={this.props.ings}
+                        ingredientDragged={(event) => { }} />
 
                     <BuildControls
+
                         ingredientAdded={this.props.onIngredientAdded}
                         ingredientRemoved={this.props.onIngredientRemoved}
                         purchasable={this.isPurchasable(this.props.ings)}

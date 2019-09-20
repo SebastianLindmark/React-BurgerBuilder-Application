@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 import classes from './BurgerIngredient.css'
 
@@ -8,36 +8,41 @@ class BurgerIngredient extends Component {
     render() {
         let ingredient = null;
 
+        let hamburgerClass = null;
+
         switch (this.props.type) {
 
             case ('bread-bottom'):
-                ingredient = <div className={classes.BreadBottom}></div>
+                hamburgerClass = classes.BreadBottom
                 break;
             case ('bread-top'):
-                ingredient = (
-
-                    <div className={classes.BreadTop}>
-                        <div className={classes.Seeds1}></div>
-                        <div className={classes.Seeds2}></div>
-                    </div>)
+                hamburgerClass = classes.BreadTop
                 break;
             case ('meat'):
-                ingredient = <div className={classes.Meat}></div>
+                hamburgerClass = classes.Meat;
                 break;
             case ('cheese'):
-                ingredient = <div className={classes.Cheese}></div>
+                hamburgerClass = classes.Cheese;
                 break;
             case ('bacon'):
-                ingredient = <div className={classes.Bacon}></div>
+                hamburgerClass = classes.Bacon;
                 break;
             case ('salad'):
-                ingredient = <div className={classes.Salad}></div>
+                hamburgerClass = classes.Salad;
                 break;
             default:
                 ingredient = null;
 
+        }
 
-
+        if (this.props.type === 'bread-top') {
+            ingredient = (
+                <div draggable className={hamburgerClass}>
+                    <div className={classes.Seeds1}></div>
+                    <div className={classes.Seeds2}></div>
+                </div>)
+        } else {
+            ingredient = <div draggable onDragStart={this.props.onDragStart} className={hamburgerClass}></div>
         }
 
         return ingredient;

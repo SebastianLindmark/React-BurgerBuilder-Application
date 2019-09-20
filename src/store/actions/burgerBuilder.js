@@ -17,9 +17,22 @@ export const removeIngredient = (name) => {
 }
 
 export const setIngredients = (ingredients) => {
+    
+    const newOrderIngredients = {
+
+        "bread-top":  ingredients['bread-top'],
+        "salad" : ingredients['salad'],
+        "bacon" : ingredients['bacon'],
+        "cheese" : ingredients['cheese'],
+        "meat" : ingredients['meat'],
+        "bread-bottom": ingredients['bread-bottom']
+    }
+    console.log(ingredients);
+    
+    
     return {
         type: actionTypes.SET_INGREDIENTS,
-        ingredients: ingredients
+        ingredients: newOrderIngredients
     }
 }
 
