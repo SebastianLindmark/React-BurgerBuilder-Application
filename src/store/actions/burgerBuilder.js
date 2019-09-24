@@ -27,7 +27,6 @@ export const setIngredients = (ingredients) => {
         "meat" : ingredients['meat'],
         "bread-bottom": ingredients['bread-bottom']
     }
-    console.log(ingredients);
     
     
     return {

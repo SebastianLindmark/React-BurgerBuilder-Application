@@ -7,7 +7,6 @@ const burger = (props) => {
     let convertedIngredients = Object.keys(props.ingredients)
     .map(igKey => {
         return [...Array(props.ingredients[igKey])].map((_,i) => {
-            console.log(i);
             return <BurgerIngredient key={igKey + i} type= {igKey} onDragStart={(event) => onDragStart(event,i)}/>
         }
         )
